@@ -1,8 +1,6 @@
-//#include "D2AM_viewer.h"
 #include <unistd.h>
 #include <detector.h>
 #include "apply_poni2023.h"
-//#include "range_controller.h"
 #include <Read_D5WOS.h>
 #include <cstdint>
 #include <cstdlib>
