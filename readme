@@ -1,0 +1,22 @@
+to run, 
+
+create_flat param_file
+
+########param_file contains strictly in order
+/Users/yoshi/analysis/D2AM_base_files/D5-NewServ_5Nov22.h5    ###the path to the detector definition file
+/Users/yoshi/data/X-ray/D2AM/2024/0418/RAW_DATA/sample5/sample5_0001/sample5_0001.h5   ## the data file
+D5_samp5.poni   #the poni file
+0.001     #increment in q (Å-1)to be sampled
+carbon_flat5.dat  # the name of the flat file (this is a float binary data of the size of detector, to be multiplied to the data, different from pyFAI convention)
+mask_D5_carbon5.dat  # mask file generated to eliminate outliers
+carbon+air_D5_5.dat  # the data used to create the flat file 
+578 # size_x of the image for diagnostic purpose 
+1150  # size_y 
+carbon_flat_image_D5_5 #name of a char image (1 byte per pixel) 
+72 # scan no. of the scattering sample
+69 # scan no. of empty beam 
+0 # multiplyler to the empty beam data (after corrected for pm1)
+2. # upper limit of the flat, if above, will be masked
+0.5 # lower limit of the flat, if under, will be masked
+1.2 # upper limit of the diagnostic image 255 = 1.2 
+0.8 # lower limit of the diagnostic image 0 = 0.8
