@@ -51,7 +51,7 @@ void write(const char fmt[], const char filename[], average_data *ptr, int size)
     ofstream fo(outfile);
     fo.write(reinterpret_cast<char *>(ptr), sizeof(average_data)*size);
 }
-void write(char fmt[], const char filename[], double *ptr, int size)
+void write(const char fmt[], const char filename[], double *ptr, int size)
 {
     char outfile[255];
     snprintf(outfile, 255, fmt, filename);
@@ -59,7 +59,7 @@ void write(char fmt[], const char filename[], double *ptr, int size)
     fo.write(reinterpret_cast<char *>(ptr), sizeof(double)*size);
 }
 
-void read(char fmt[], const char filename[], double *ptr, int size)
+void read(const char fmt[], const char filename[], double *ptr, int size)
 {
     char infile[255];
     snprintf(infile, 255, fmt, filename);
@@ -67,7 +67,7 @@ void read(char fmt[], const char filename[], double *ptr, int size)
     fi.read(reinterpret_cast<char *>(ptr), sizeof(double)*size);
 }
 
-static void save(char fmt[], int num, plot_data *dat, int size)
+static void save(const char fmt[], int num, plot_data *dat, int size)
 {
     char filename [256];
     snprintf(filename, 256, fmt, num);
@@ -75,7 +75,7 @@ static void save(char fmt[], int num, plot_data *dat, int size)
     fo.write(reinterpret_cast<char*>(dat), size*16);
 }
 
-void read_paths(char filename[], vector<string> &name)
+void read_paths(const char filename[], vector<string> &name)
 {
    ifstream fi(filename);
    string s;
@@ -87,8 +87,6 @@ void dump_data(const char filename[], void *ptr, int image_size)
     ofstream fo(filename);
     fo.write(reinterpret_cast<char *>(ptr), image_size*4);
 }
-
-#include <getopt.h>
 
 void finalize_flat(float *flat, char *mask, int n, float min, float  max)
 {
