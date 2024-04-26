@@ -46,7 +46,7 @@ void write(const char filename[], T *flat, int size){
     fo.write(reinterpret_cast<char *>(flat), size*sizeof(T));
 }
 
-void write(char fmt[], const char filename[], average_data *ptr, int size)
+void write(const char fmt[], const char filename[], average_data *ptr, int size)
 {
     char outfile[255];
     snprintf(outfile, 255, fmt, filename);
@@ -84,7 +84,7 @@ void read_paths(char filename[], vector<string> &name)
    while(fi >>s) name.push_back(s); 
 }
 
-void dump_data(char filename[], void *ptr, int image_size)
+void dump_data(const char filename[], void *ptr, int image_size)
 {
     ofstream fo(filename);
     fo.write(reinterpret_cast<char *>(ptr), image_size*4);
