@@ -7,7 +7,11 @@ int vsize = 960;
 char header_char[512];
 int main(int argc, char *argv[])
 {
-    snprintf(header_char, 512, "{\nEDF_DataBlockID = 0.Image.Psd ;\nEDF_BinarySize = %d ;\nEDF_HeaderSize =   %d ;\nByteOrder = LowByteFirst ;DataType = FloatValue ;\nDim_1 = %d ;\nDim_2 = %d\n Image = 0 ;HeaderID = EH:000000:000000:000000 ;\n;Size = %d ;\n", hsize*vsize*4, 512, hsize, vsize, hsize*vsize*4);
+    if(argc > 3) {
+      hsize = 1156;
+      vsize = 600;
+    } 
+    snprintf(header_char, 512, "{\nEDF_DataBlockID = 0.Image.Psd ;\nEDF_BinarySize = %d ;\nEDF_HeaderSize = %d ;\nByteOrder = LowByteFirst ;DataType = FloatValue ;\nDim_1 = %d ;\nDim_2 = %d ;\n Image = 0 ;\nHeaderID = EH:000000:000000:000000 ;\n;Size = %d ;\n", hsize*vsize*4, 512, hsize, vsize, hsize*vsize*4);
     int n =  strlen(header_char);  
 //    for(int i = n-2; i < 510; i++) snprintf(header_char+i,1, " ") ;
     char header_char1[512];

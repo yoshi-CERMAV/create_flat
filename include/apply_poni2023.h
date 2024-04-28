@@ -154,9 +154,7 @@ public:
                 }
             }
         }
-        cout << "done"<<endl;
         // calculate center of pixels
-        cout << "calculating correction"<<endl;
         //calculate correction factors
         ptr = Detector->center_pos;
         ptr_qb = center_qb;
@@ -185,7 +183,6 @@ public:
             center_corr[i] = corr;
         }
         cout << center_qb[0]<<" "<<center_qb[1]<<endl;
-        cout <<"going to sort "<<endl;
         // sort as function of q.
         if(Detector->masked){
             char *mask = Detector->mask;
@@ -207,9 +204,9 @@ public:
         Comparator comp(center_qb);
         sort(pixel_index, pixel_index + valid_count, comp);
         cout <<"sorted" <<endl;
-        auto [q, t] = std::div((int)pixel_index[0], 578);
+        auto [q, t] = std::div((int)pixel_index[0], Detector->ld());
         cout << "q t "<< q<<" "<<t<<" "<<center_qb[pixel_index[0]*2]<<endl;
-        auto [q1, t1] = std::div((int)pixel_index[valid_count-1], 578);
+        auto [q1, t1] = std::div((int)pixel_index[valid_count-1], Detector->ld());
         cout << "q t "<< q1<<" "<<t1<<" "<<center_qb[pixel_index[valid_count-1]*2]<<endl;
     }
     
@@ -557,6 +554,7 @@ public:
         double *A = new double [len * 4];
         int *pivot = new int[5];
     }
+    
     
     double fit1(double q0, double q1, int *dat, int *bg, float *flat){
         cout<<"going to fit"<<endl;

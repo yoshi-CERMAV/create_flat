@@ -410,6 +410,7 @@ public:
     int size(){return image_size;}
     float *positions(){return center_pos;}
     bool is_masked(){return masked;}
+    int ld(){return dim0;}
 protected:
     friend class apply_poni;
     
