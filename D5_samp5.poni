@@ -1,0 +1,12 @@
+# Nota: C-Order, 1 refers to the Y axis, 2 to the X axis 
+# Calibration done at Thu Apr 25 09:37:16 2024
+poni_version: 2
+Detector: NexusDetector
+Detector_config: {"filename": "/Users/yoshi/analysis/D2AM_base_files/D5-NewServ_5Nov22.h5"}
+Distance: 3.4595846852878114
+Poni1: 0.09168058252316835
+Poni2: -0.005763722852451183
+Rot1: 0.005789163248161827
+Rot2: 0.0011087612326454196
+Rot3: 4.3634257581378104e-13
+Wavelength: 6.888011024066681e-11
