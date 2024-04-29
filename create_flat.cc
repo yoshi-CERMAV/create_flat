@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
     ///do a robust integration
     q1 = Poni->qmax();
     q0 = Poni->qmin();
-    qsize = (q1- q0)/ qstep;\
+    qsize = (q1- q0)/ qstep;
     
     cout << "qsize = "<< qsize<<endl;
     Avg_data = new average_data[qsize];
