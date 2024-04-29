@@ -171,15 +171,17 @@ int main(int argc, char *argv[])
     int image_size;
     cout << sample_scan<<endl;
     if(detector_type==D5_WOS::WOS){
-        reader->accumulate_scan_WOS(sample_scan, sample_data);
         image_size = vec_sizeWOS[0] * vec_sizeWOS[1];
+        sample_data = new int[image_size];
+        mt_data = new int[image_size];
+        reader->accumulate_scan_WOS(sample_scan, sample_data);
     }else{
-        reader->accumulate_scan_D5(sample_scan, sample_data);
         image_size = vec_sizeD5[0] * vec_sizeD5[1];
+        sample_data = new int[image_size];
+        mt_data = new int[image_size];
+        reader->accumulate_scan_D5(sample_scan, sample_data);
     }
     
-    sample_data = new int[image_size];
-    mt_data  = new int[image_size];
     dump_data("sample_data", sample_data, image_size);
     float pm = reader->accumulate_pm(sample_scan);
     cout << pm<<endl;
